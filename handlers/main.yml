@@ -1,0 +1,6 @@
+---
+- name: reload fail2ban
+  action: service
+    name=fail2ban
+    state=reloaded
+    enabled=yes

@@ -1,0 +1,15 @@
+---
+- name: Install Fail2Ban
+  apt:
+    name=fail2ban
+    update_cache=yes
+
+- name: Configure Fail2Ban main configuration
+  template:
+    src=jail.conf
+    dest=/etc/fail2ban/jail.conf
+    owner=root
+    group=root
+    mode=0640
+    force=yes
+  notify: reload fail2ban
